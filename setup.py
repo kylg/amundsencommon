@@ -6,7 +6,7 @@ setup(
     description='Common code library for Amundsen',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/lyft/amundsencommon',
+    url='https://github.com/kylg/amundsencommon',
     maintainer='Lyft',
     maintainer_email='amundsen-dev@lyft.com',
     packages=find_packages(exclude=['tests*']),
