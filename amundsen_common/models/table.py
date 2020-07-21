@@ -148,6 +148,7 @@ class Table:
     source: Optional[Source] = None
     is_view: Optional[bool] = attr.ib(default=None, converter=default_if_none)
     programmatic_descriptions: List[ProgrammaticDescription] = []
+    tblLocation: str = None
 
 
 class TableSchema(AttrsSchema):
