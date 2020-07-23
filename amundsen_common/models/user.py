@@ -55,25 +55,34 @@ class UserSchema(AttrsSchema):
 
     @pre_load
     def preprocess_data(self, data: Dict) -> Dict:
-        if self._str_no_value(data.get('user_id')):
+        if self._str_no_value(data.get('mail')):
+            data['email'] = data.get('userPrincipalName')
+        else:
+            data['email'] = data.get('mail')
+
+        if self._str_no_value(data.get('id')):
             data['user_id'] = data.get('email')
+        else:
+            data['user_id'] = data.get('id')
 
         if self._str_no_value(data.get('profile_url')):
             data['profile_url'] = ''
             if data.get('GET_PROFILE_URL'):
                 data['profile_url'] = data.get('GET_PROFILE_URL')(data['user_id'])
 
-        first_name = data.get('first_name')
-        last_name = data.get('last_name')
+        first_name = data.get('givenName')
+        last_name = data.get('surname')
+        data['first_name'] = first_name
+        data['last_name'] = last_name
 
         if self._str_no_value(data.get('full_name')) and first_name and last_name:
             data['full_name'] = f"{first_name} {last_name}"
 
         if self._str_no_value(data.get('display_name')):
-            if self._str_no_value(data.get('full_name')):
+            if self._str_no_value(data.get('displayName')):
                 data['display_name'] = data.get('email')
             else:
-                data['display_name'] = data.get('full_name')
+                data['display_name'] = data.get('displayName')
 
         return data
 
