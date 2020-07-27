@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='amundsen-common',
+    name='amundsencommon-azure',
     version='0.3.5',
     description='Common code library for Amundsen',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/kylg/amundsencommon',
-    maintainer='Lyft',
-    maintainer_email='amundsen-dev@lyft.com',
+    maintainer='kylg',
+    maintainer_email='info@kylg.org',
     packages=find_packages(exclude=['tests*']),
     dependency_links=[],
     install_requires=[
