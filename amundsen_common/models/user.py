@@ -57,12 +57,14 @@ class UserSchema(AttrsSchema):
     def preprocess_data(self, data: Dict) -> Dict:
         if self._str_no_value(data.get('email')):
             if self._str_no_value(data.get('mail')):
-                data['email'] = data.get('userPrincipalName')
+                data['email'] = data.get('userPrincipalName').lower()
             else:
-                data['email'] = data.get('mail')
+                data['email'] = data.get('mail').lower()
+        else:
+            data['email'] = data.get('email').lower()
 
         if self._str_no_value(data.get("user_id")):
-            data['user_id'] = data.get('email').lower()
+            data['user_id'] = data.get('email')
         # if self._str_no_value(data.get('id')):
         #     data['user_id'] = data.get('email').lower()
         # else:
