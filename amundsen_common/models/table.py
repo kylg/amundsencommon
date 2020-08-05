@@ -100,6 +100,17 @@ class SourceSchema(AttrsSchema):
         register_as_scheme = True
 
 @attr.s(auto_attribs=True, kw_only=True)
+class Generator:
+    generator_type: str
+    generator: str
+
+
+class GeneratorSchema(AttrsSchema):
+    class Meta:
+        target = Generator
+        register_as_scheme = True
+
+@attr.s(auto_attribs=True, kw_only=True)
 class ResourceReport:
     name: str
     url: str
@@ -146,6 +157,7 @@ class Table:
     resource_reports: Optional[List[ResourceReport]] = None
     last_updated_timestamp: Optional[int] = None
     source: Optional[Source] = None
+    generator: Optional[Generator] = None
     is_view: Optional[bool] = attr.ib(default=None, converter=default_if_none)
     programmatic_descriptions: List[ProgrammaticDescription] = []
     tblLocation: str = None
