@@ -89,6 +89,10 @@ class UserSchema(AttrsSchema):
             else:
                 data['display_name'] = data.get('displayName')
 
+        if self._str_no_value(data.get('role_name')):
+            data['role_name'] = "user"
+        else:
+            data['role_name'] = data.get('role_name').lower()
         return data
 
     @validates_schema
