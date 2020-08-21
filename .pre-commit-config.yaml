@@ -28,7 +28,7 @@ repos:
         -   flake8-builtins==1.4.1
         -   flake8-comprehensions==1.4.1
         -   flake8-tidy-imports==1.1.0
-        -   flake8==3.7.2
+        -   flake8==3.7.8
 -   repo: https://github.com/asottile/pyupgrade
     rev: v1.11.1
     hooks:
