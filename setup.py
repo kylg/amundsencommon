@@ -1,8 +1,11 @@
+# Copyright Contributors to the Amundsen project.
+# SPDX-License-Identifier: Apache-2.0
+
 from setuptools import setup, find_packages
 
 setup(
     name='amundsencommon-azure',
-    version='0.3.6',
+    version='0.3.8',
     description='Common code library for Amundsen',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
