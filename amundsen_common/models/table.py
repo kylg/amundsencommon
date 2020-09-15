@@ -100,17 +100,6 @@ class SourceSchema(AttrsSchema):
         register_as_scheme = True
 
 @attr.s(auto_attribs=True, kw_only=True)
-class Generator:
-    generator_type: str
-    generator: str
-
-
-class GeneratorSchema(AttrsSchema):
-    class Meta:
-        target = Generator
-        register_as_scheme = True
-
-@attr.s(auto_attribs=True, kw_only=True)
 class ResourceReport:
     name: str
     url: str
