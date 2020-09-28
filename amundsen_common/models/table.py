@@ -149,7 +149,6 @@ class Table:
     resource_reports: Optional[List[ResourceReport]] = None
     last_updated_timestamp: Optional[int] = None
     source: Optional[Source] = None
-    generator: Optional[Generator] = None
     is_view: Optional[bool] = attr.ib(default=None, converter=default_if_none)
     programmatic_descriptions: List[ProgrammaticDescription] = []
     tblLocation: str = None
